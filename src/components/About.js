@@ -1,21 +1,18 @@
 import React from "react";
-import user from "../data/user";
-import Links from "./Links";
-
-function About(bio) {
-  return (
-    <div id="about">
-      <h2>About Me</h2>
-      {bio && <p>{user.bio}</p>}
-      <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
-      <h3>Links</h3>
-      <Links 
-      github={user.github} 
-      linkedin={user.linkedin} 
-      />
-    </div>
-  );
+import Links from "./Links.js";
+function About(props) {
+    if(props.bio === undefined || props.bio === ""){
+      return null;
+    } else{
+      return (
+        <div id="about">
+          <h2>About Me</h2>
+          <p>{props.bio}</p>
+          <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
+           <Links />
+        </div>
+      );
+    }
 }
 
 export default About;
